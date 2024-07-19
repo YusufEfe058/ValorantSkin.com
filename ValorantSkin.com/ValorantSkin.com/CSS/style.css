@@ -1,0 +1,555 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== ROOT ======== */
+:root {
+    --red: #ef4958;
+    --black:#111111;
+    --cream:#e1dacd;
+    --bgwhite:#d9d9d9;
+}
+
+/* Temel Stil */
+html, body {
+    height: 100%;
+    line-height: 1.6;
+    background-color: var(--bgwhite);
+}
+
+@font-face {
+    font-family: 'Nevan';
+    src: url(FONT/Nevan.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+
+
+
+/* ======== NAVBAR ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--black);
+    font-family: Nevan;
+    
+}
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo img {
+    height: 55px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    flex: 2;
+    justify-content: center;
+    
+}
+
+.nav-links li a {
+  margin-right: 25px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #d9d9d9;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px; 
+  left: 0;
+  width: 0;
+  height: 2px; 
+  background-color: var(--red);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  width: 300px;
+  margin-right: 100px;
+  padding: 8px;
+  border-radius: 15px;
+  border: 3px solid transparent; /* Initially transparent border */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.search:focus {
+  border-color: var(--red); /* Change to desired color on focus */
+}
+
+.search-icon {
+  color: #111111;
+  position: absolute;
+  right: 115px;
+  cursor: pointer;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.cart-button {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+      position: relative; /* Popup kart için pozisyon ayarı */
+    }
+
+    .btn1 {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      color: var(--button-text-color);
+      font-family: Nevan;
+      --button-text-color: var(--background-color);
+      --button-text-color-hover: var(--button-background-color);
+      --border-color: #7D8082;
+      --button-background-color: #ece8e1;
+      --highlight-color: #ff4655;
+      --button-inner-border-color: transparent;
+      --button-bits-color: var(--background-color);
+      --button-bits-color-hover: var(--button-background-color);
+      position: relative;
+      padding: 5px;
+      margin-bottom: 2%;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all .15s ease;
+    }
+
+    .btn__inner1 {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+      display: block;
+      background-color: var(--bgwhite);
+      overflow: hidden;
+      box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+    }
+
+    .btn__inner1::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 2px;
+      background-color: var(--button-bits-color);
+    }
+
+    .btn__inner1::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; bottom: 0;
+      width: 4px;
+      height: 4px;
+      background-color: var(--red);
+      transition: all .2s ease;
+    }
+
+    .btn__slide1 {
+      display: block;
+      position: absolute;
+      top: 0; bottom: -1px; left: -8px;
+      width: 0;
+      background-color: var(--highlight-color);
+      transform: skew(-15deg);
+      transition: all .2s ease;
+    }
+
+    .btn__content1 {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .btn1::before,
+    .btn1::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; left: 0;
+      height: calc(50% - 5px);
+      border: 1px solid var(--border-color);
+      transition: all .15s ease;
+    }
+
+    .btn1::before {
+      top: 0;
+      border-bottom-width: 0;
+    }
+
+    .btn1::after {
+      bottom: 0;
+      border-top-width: 0;
+    }
+
+    .btn1:active,
+    .btn1:focus {
+      outline: none;
+    }
+
+    .btn1:active::before,
+    .btn1:active::after {
+      right: 3px;
+      left: 3px;
+    }
+
+    .btn1:active::before {
+      top: 3px;
+    }
+
+    .btn1:active::after {
+      bottom: 3px;
+    }
+
+    .btn1:hover {
+      color: var(--button-text-color-hover);
+    }
+
+    .btn1:hover .btn__slide1 {
+      width: calc(100% + 15px);
+    }
+
+    .btn1:hover .btn__inner1::after {
+      background-color: var(--button-bits-color-hover);
+    }
+
+    .btn--light1 {
+      --button-background-color: var(--background-color);
+      --button-text-color: var(--highlight-color);
+      --button-inner-border-color: var(--highlight-color);
+      --button-text-color-hover: #ece8e1;
+      --button-bits-color-hover: #ece8e1;
+    }
+
+    .pop-up-card {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      padding: 15px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .cart-button:hover .pop-up-card {
+      display: block;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    .footer .btn {
+      position: relative;
+    }
+
+
+  
+/* ======== NAVBAR END ========== */
+
+/* ======== CONTAINER ========== */
+.baslik h2 {
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: nevan;
+  font-size: 50px;
+}
+
+.baslik h2::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 2px;
+  background-color: red;
+  position: absolute;
+  bottom: -1px; 
+  left: 10;
+
+}
+
+/* ======== SLIDER  ========== */
+.slider {
+  width: 1300px;
+  max-width: 100vw;
+  height: 500px;
+  margin: auto;
+  padding: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+.slider .list {
+  position: absolute;
+  width: max-content;
+  height: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  transition: 1s;
+}
+.slider .list img {
+  width: 1300px;
+  max-width: 100vw;
+  height: 100%;
+  object-fit: cover;
+}
+.slider .buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.slider .buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--red);
+  border: none;
+  font-family: monospace;
+  font-size: 30px;
+}
+.slider .dots {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #e60707d2;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.slider .dots li {
+  list-style: none;
+  width: 10px;
+  height: 10px;
+  background-color: var(--black);
+  margin: 10px;
+  border-radius: 20px;
+  transition: 0.9s;
+}
+.slider .dots li.active {
+  width: 30px;
+}
+@media screen and (max-width: 768px) {
+  .slider {
+      height: 400px;
+  }
+}
+/* ======== SLIDER END ========== */
+
+/* ======== CONTAINER END========== */
+
+
+/* ============ FOTER ============   */
+.footer{
+  background-color: #111111;
+  margin-top: 98px;
+  width: 100%;
+  height: 150px;
+  position: relative;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 300px;
+}
+
+/* ============ FOTER END============   */
+
+
+
+/* ======== BUTTON ========== */
+.btn {
+    /* Clean style */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--button-text-color);
+    cursor: pointer;
+    font-family: Nevan;
+    /* Clean style */
+    
+    --button-text-color: var(--background-color);
+    --button-text-color-hover: var(--button-background-color);
+    --border-color: #7D8082;
+    --button-background-color: #ece8e1;
+    --highlight-color: #ff4655;
+    --button-inner-border-color: transparent;
+    --button-bits-color: var(--background-color);
+    --button-bits-color-hover: var(--button-background-color);
+    
+    position: relative;
+    padding: 5px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all .15s ease;
+  }
+  
+  .btn::before,
+  .btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0; left: 0;
+    height: calc(50% - 5px);
+    border: 1px solid var(--border-color);
+    transition: all .15s ease;
+  }
+  
+  .btn::before {
+    top: 0;
+    border-bottom-width: 0;
+  }
+  
+  .btn::after {
+    bottom: 0;
+    border-top-width: 0;
+  }
+  
+  .btn:active,
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active::before,
+  .btn:active::after {
+    right: 3px;
+    left: 3px;
+  }
+  
+  .btn:active::before {
+    top: 3px;
+  }
+  
+  .btn:active::after {
+    bottom: 3px;
+  }
+  
+  .btn__inner {
+    position: relative;
+    display: block;
+    padding: 20px 30px;
+    background-color:var(--bgwhite);
+    overflow: hidden;
+    box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+  }
+  
+  .btn__inner::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 2px;
+    background-color: var(--button-bits-color);
+  }
+  
+  .btn__inner::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0; bottom: 0;
+    width: 4px;
+    height: 4px;
+    background-color:var(--red);
+    transition: all .2s ease;
+  }
+  
+  .btn__slide {
+    display: block;
+    position: absolute;
+    top: 0; bottom: -1px; left: -8px;
+    width: 0;
+    background-color: var(--highlight-color);
+    transform: skew(-15deg);
+    transition: all .2s ease;
+  }
+  
+  .btn__content {
+    position: relative;
+  }
+  
+  .btn:hover {
+    color: var(--button-text-color-hover);
+  }
+  
+  .btn:hover .btn__slide {
+    width: calc(100% + 15px);
+  }
+  
+  .btn:hover .btn__inner::after {
+    background-color: var(--button-bits-color-hover);
+  }
+  
+  .btn--light {
+    --button-background-color: var(--background-color);
+    --button-text-color: var(--highlight-color);
+    --button-inner-border-color: var(--highlight-color);
+    --button-text-color-hover: #ece8e1;
+    --button-bits-color-hover: #ece8e1;
+  }
+
+/* ======== BUTTON  END ========== */

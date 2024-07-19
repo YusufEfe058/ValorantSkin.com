@@ -1,0 +1,360 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ======== ROOT ======== */
+:root {
+    --red: #ef4958;
+    --black:#111111;
+    --cream:#e1dacd;
+    --bgwhite:#d9d9d9;
+}
+
+/* Temel Stil */
+html, body {
+    height: 100%;
+    line-height: 1.6;
+    background-color: var(--bgwhite);
+}
+
+@font-face {
+    font-family: 'Nevan';
+    src: url(FONT/Nevan.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+
+
+
+/* ======== NAVBAR ========== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--black);
+    font-family: Nevan;
+    
+}
+.logo {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo img {
+    height: 55px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    flex: 2;
+    justify-content: center;
+    
+}
+
+.nav-links li a {
+  margin-right: 25px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #d9d9d9;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -5px; 
+  left: 0;
+  width: 0;
+  height: 2px; 
+  background-color: var(--red);
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  width: 300px;
+  margin-right: 100px;
+  padding: 8px;
+  border-radius: 15px;
+  border: 3px solid transparent; /* Initially transparent border */
+  outline: none; /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.search:focus {
+  border-color: var(--red); /* Change to desired color on focus */
+}
+
+.search-icon {
+  color: #111111;
+  position: absolute;
+  right: 115px;
+  cursor: pointer;
+}
+
+.cart-button {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+      position: relative; /* Popup kart için pozisyon ayarı */
+    }
+
+    .btn1 {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      color: var(--button-text-color);
+      font-family: Nevan;
+      --button-text-color: var(--background-color);
+      --button-text-color-hover: var(--button-background-color);
+      --border-color: #7D8082;
+      --button-background-color: #ece8e1;
+      --highlight-color: #ff4655;
+      --button-inner-border-color: transparent;
+      --button-bits-color: var(--background-color);
+      --button-bits-color-hover: var(--button-background-color);
+      position: relative;
+      padding: 5px;
+      margin-bottom: 2%;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 15px;
+      transition: all .15s ease;
+    }
+
+    .btn__inner1 {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
+      display: block;
+      background-color: var(--bgwhite);
+      overflow: hidden;
+      box-shadow: inset 0px 0px 0px 1px var(--button-inner-border-color);
+    }
+
+    .btn__inner1::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px;
+      height: 2px;
+      background-color: var(--button-bits-color);
+    }
+
+    .btn__inner1::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; bottom: 0;
+      width: 4px;
+      height: 4px;
+      background-color: var(--red);
+      transition: all .2s ease;
+    }
+
+    .btn__slide1 {
+      display: block;
+      position: absolute;
+      top: 0; bottom: -1px; left: -8px;
+      width: 0;
+      background-color: var(--highlight-color);
+      transform: skew(-15deg);
+      transition: all .2s ease;
+    }
+
+    .btn__content1 {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .btn1::before,
+    .btn1::after {
+      content: '';
+      display: block;
+      position: absolute;
+      right: 0; left: 0;
+      height: calc(50% - 5px);
+      border: 1px solid var(--border-color);
+      transition: all .15s ease;
+    }
+
+    .btn1::before {
+      top: 0;
+      border-bottom-width: 0;
+    }
+
+    .btn1::after {
+      bottom: 0;
+      border-top-width: 0;
+    }
+
+    .btn1:active,
+    .btn1:focus {
+      outline: none;
+    }
+
+    .btn1:active::before,
+    .btn1:active::after {
+      right: 3px;
+      left: 3px;
+    }
+
+    .btn1:active::before {
+      top: 3px;
+    }
+
+    .btn1:active::after {
+      bottom: 3px;
+    }
+
+    .btn1:hover {
+      color: var(--button-text-color-hover);
+    }
+
+    .btn1:hover .btn__slide1 {
+      width: calc(100% + 15px);
+    }
+
+    .btn1:hover .btn__inner1::after {
+      background-color: var(--button-bits-color-hover);
+    }
+
+    .btn--light1 {
+      --button-background-color: var(--background-color);
+      --button-text-color: var(--highlight-color);
+      --button-inner-border-color: var(--highlight-color);
+      --button-text-color-hover: #ece8e1;
+      --button-bits-color-hover: #ece8e1;
+    }
+
+    .pop-up-card {
+      display: none;
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      padding: 15px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .cart-button:hover .pop-up-card {
+      display: block;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #f1f1f1;
+    }
+
+    .footer .btn {
+      position: relative;
+    }
+
+
+  
+/* ======== NAVBAR END ========== */
+
+.row {
+	display: flex;
+	padding: 30px;
+	gap: 30px;
+	flex-wrap: wrap;
+	background: inherit;
+	justify-content: center; /* Kartları ortalamak için */
+    font-family: nevan;
+}
+
+.box {
+	position: relative;
+	width: 450px;
+	height: 300px;
+	border-radius: 20px;
+	background-color: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 8px -8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+	display: inline-flex;
+	padding: 12px 20px;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	text-decoration: none;
+	background-color: var(--black);
+	border-radius: 80px;
+    border: 2px solid #000;
+}
+
+.btn-decor-wrap {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: inline-block;
+	padding: 24px 24px 0 0;
+	margin: 24px 24px 0 0;
+	border-top-right-radius: 45px;
+	background-color: inherit;	
+}
+
+.btn-decor-wrap:after,
+.btn-decor-wrap:before {
+	z-index: 0;
+	position: absolute;
+	display: block;
+	width: 24px;
+	height: 24px;
+	content: '';
+	clip-path: polygon(0.082% 0%,0% 0%,0% 100%,100% 100%,100% 99.918%,100% 99.918%,84.085% 98.066%,68.994% 93.913%,54.912% 87.642%,42.022% 79.44%,30.51% 69.49%,20.56% 57.978%,12.358% 45.088%,6.088% 31.006%,1.934% 15.915%,0.082% 0%);
+	background-color: inherit;
+	overflow: hidden;
+}
+
+.btn-decor-wrap:before {
+	top: -24px;
+	left: 0;	
+}
+
+.btn-decor-wrap:after {
+	right: -24px;
+	bottom: 0;
+}
